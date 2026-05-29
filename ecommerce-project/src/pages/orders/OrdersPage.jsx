@@ -2,12 +2,14 @@ import axios from 'axios';
 import dayjs from 'dayjs';
 import { useState, useEffect, Fragment } from 'react';
 import { Link } from 'react-router';
+import toast from 'react-hot-toast';
 import { Header } from '../../components/Header';
 import { formatMoney } from '../../utils/money';
 import './OrdersPage.css';
 
-export function OrdersPage({ cart }) {
+export function OrdersPage({ cart, loadCart }) {
   const [orders, setOrders] = useState([]);
+  const [addingProductId, setAddingProductId] = useState('');
 
   useEffect(() => {
     axios.get('/api/orders?expand=products')
@@ -15,6 +17,24 @@ export function OrdersPage({ cart }) {
         setOrders(response.data);
       });
   }, []);
+
+  const addToCart = async (orderProduct) => {
+    try {
+      setAddingProductId(orderProduct.productId);
+
+      await axios.post('/api/cart-items', {
+        productId: orderProduct.productId,
+        quantity: orderProduct.quantity
+      });
+
+      await loadCart();
+      toast.success('Added to cart');
+    } catch (error) {
+      toast.error('Unable to add this item to cart');
+    } finally {
+      setAddingProductId('');
+    }
+  };
 
   return (
     <>
@@ -66,9 +86,16 @@ export function OrdersPage({ cart }) {
                           <div className="product-quantity">
                             Quantity: {orderProduct.quantity}
                           </div>
-                          <button className="buy-again-button button-primary">
+                          <button
+                            className="buy-again-button button-primary"
+                            type="button"
+                            onClick={() => addToCart(orderProduct)}
+                            disabled={addingProductId === orderProduct.productId}
+                          >
                             <img className="buy-again-icon" src="images/icons/buy-again.png" />
-                            <span className="buy-again-message">Add to Cart</span>
+                            <span className="buy-again-message">
+                              {addingProductId === orderProduct.productId ? 'Adding...' : 'Add to Cart'}
+                            </span>
                           </button>
                         </div>
 

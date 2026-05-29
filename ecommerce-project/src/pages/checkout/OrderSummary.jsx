@@ -2,6 +2,7 @@ import axios from 'axios';
 import dayjs from 'dayjs';
 import { formatMoney } from '../../utils/money';
 import { DeliveryOptions } from './DeliveryOptions';
+import toast from 'react-hot-toast';
 
 export function OrderSummary({ cart, deliveryOptions, loadCart }) {
   return (
@@ -12,9 +13,24 @@ export function OrderSummary({ cart, deliveryOptions, loadCart }) {
             return deliveryOption.id === cartItem.deliveryOptionId;
           });
 
+        const updateCartItem = async (event) => {
+          const quantity = Number(event.target.value);
+
+          if (!Number.isInteger(quantity) || quantity < 1) {
+            return;
+          }
+
+          await axios.put(`/api/cart-items/${cartItem.productId}`, {
+            quantity
+          });
+          await loadCart();
+          toast.success('Cart updated');
+        };
+
         const deleteCartItem = async () => {
           await axios.delete(`/api/cart-items/${cartItem.productId}`);
           await loadCart();
+          toast.success('Item removed from cart');
         };
 
         return (
@@ -35,16 +51,20 @@ export function OrderSummary({ cart, deliveryOptions, loadCart }) {
                   {formatMoney(cartItem.product.priceCents)}
                 </div>
                 <div className="product-quantity">
-                  <span>
-                    Quantity: <span className="quantity-label">{cartItem.quantity}</span>
-                  </span>
-                  <span className="update-quantity-link link-primary">
-                    Update
-                  </span>
-                  <span className="delete-quantity-link link-primary"
+                  <label className="quantity-field quantity-field--compact">
+                    <span>Quantity</span>
+                    <input
+                      type="number"
+                      min="1"
+                      step="1"
+                      value={cartItem.quantity}
+                      onChange={updateCartItem}
+                    />
+                  </label>
+                  <button type="button" className="delete-quantity-link link-primary"
                     onClick={deleteCartItem}>
                     Delete
-                  </span>
+                  </button>
                 </div>
               </div>
 

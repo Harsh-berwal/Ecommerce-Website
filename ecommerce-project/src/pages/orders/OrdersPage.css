@@ -1,84 +1,91 @@
 .orders-page {
-  max-width: 850px;
-  margin-top: 90px;
+  max-width: 1080px;
+  margin-top: 104px;
   margin-bottom: 100px;
   padding-left: 20px;
   padding-right: 20px;
-
-  /* margin-left: auto;
-     margin-right auto;
-     Is a trick for centering an element horizontally
-     without needing a container. */
   margin-left: auto;
   margin-right: auto;
 }
 
 .orders-page .page-title {
   font-weight: 700;
-  font-size: 26px;
-  margin-bottom: 25px;
+  font-size: clamp(1.8rem, 2.4vw, 2.4rem);
+  margin-bottom: 24px;
+  letter-spacing: -0.04em;
 }
 
 .orders-page .orders-grid {
   display: grid;
   grid-template-columns: 1fr;
-  row-gap: 50px;
+  row-gap: 18px;
 }
 
 .orders-page .order-container {
+  border-radius: 24px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: var(--shadow-sm);
   transform: scale(1);
   transform-origin: center;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
   will-change: transform;
 }
 
 .orders-page .order-container:hover {
-  transform: scale(1.01);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
   cursor: pointer;
 }
 
 .orders-page .order-header {
-  background-color: rgb(255, 255, 255);
-  border: 1px solid rgb(222, 222, 222);
-
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(244, 247, 251, 0.96));
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  padding: 20px 25px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  gap: 18px;
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
 }
 
 .orders-page .order-header-left-section {
   display: flex;
-  flex-shrink: 0;
+  gap: 22px;
+  flex-wrap: wrap;
 }
 
 .orders-page .order-header-label {
   font-weight: 700;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 .orders-page .order-date,
 .orders-page .order-total {
-  margin-right: 45px;
+  display: grid;
+  gap: 4px;
 }
 
 .orders-page .order-header-right-section {
-  flex-shrink: 1;
+  flex-shrink: 0;
+  display: grid;
+  gap: 4px;
 }
 
 @media (max-width: 575px) {
   .orders-page .order-header {
     flex-direction: column;
     align-items: start;
-    line-height: 23px;
-    padding: 15px;
+    line-height: 1.5;
+    padding: 16px;
   }
 
   .orders-page .order-header-left-section {
     flex-direction: column;
+    gap: 12px;
   }
 
   .orders-page .order-header-label {
@@ -87,9 +94,7 @@
 
   .orders-page .order-date,
   .orders-page .order-total {
-    display: grid;
     grid-template-columns: auto 1fr;
-    margin-right: 0;
   }
 
   .orders-page .order-header-right-section {
@@ -99,24 +104,19 @@
 }
 
 .orders-page .order-details-grid {
-  padding: 40px 25px;
-  border: 1px solid rgb(222, 222, 222);
-  border-top: none;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-
+  padding: 18px 20px 20px;
   display: grid;
-  grid-template-columns: 110px 1fr 220px;
-  column-gap: 35px;
-  row-gap: 60px;
-  align-items: center;
+  grid-template-columns: 104px minmax(0, 1fr) 180px;
+  column-gap: 18px;
+  row-gap: 18px;
+  align-items: start;
 }
 
 @media (max-width: 800px) {
   .orders-page .order-details-grid {
     grid-template-columns: 110px 1fr;
-    row-gap: 0;
-    padding-bottom: 8px;
+    row-gap: 16px;
+    padding-bottom: 18px;
   }
 }
 
@@ -131,13 +131,13 @@
 }
 
 .orders-page .product-image-container img {
-  max-width: 110px;
-  max-height: 110px;
+  max-width: 84px;
+  max-height: 84px;
 }
 
 .orders-page .product-name {
   font-weight: 700;
-  margin-bottom: 5px;
+  margin-bottom: 4px;
 }
 
 .orders-page .product-delivery-date {
@@ -150,33 +150,41 @@
 
 .orders-page .buy-again-button {
   font-size: 14px;
-  width: 140px;
-  height: 36px;
-  border-radius: 5px;
-
+  width: fit-content;
+  min-width: 142px;
+  min-height: 40px;
+  padding: 0 14px;
+  border-radius: 14px;
+  gap: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-weight: 800;
+  box-shadow: var(--shadow-sm);
 }
 
 .orders-page .buy-again-icon {
-  width: 20px;
-  margin-right: 10px;
+  width: 18px;
+  margin-right: 0;
 }
 
 .orders-page .product-actions {
   align-self: start;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .orders-page .track-package-button {
-  width: 100%;
+  width: fit-content;
+  min-width: 142px;
   font-size: 14px;
-  padding: 8px;
+  min-height: 42px;
+  border-radius: 14px;
 }
 
 @media (max-width: 800px) {
   .orders-page .buy-again-button {
-    margin-bottom: 10px;
+    margin-bottom: 0;
   }
 
   .orders-page .product-actions {
@@ -186,36 +194,36 @@
        of the elements in the HTML. grid-column overrides
        this default ordering). */
     grid-column: 2;
-    margin-bottom: 30px;
+    margin-bottom: 0;
   }
 
   .orders-page .track-package-button {
-    width: 140px;
+    width: fit-content;
   }
 }
 
 @media (max-width: 450px) {
   .orders-page .product-image-container {
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 0;
   }
 
   .orders-page .product-image-container img {
-    max-width: 150px;
-    max-height: 150px;
+    max-width: 110px;
+    max-height: 110px;
   }
 
   .orders-page .product-name {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
 
   .orders-page .product-quantity {
-    margin-bottom: 15px;
+    margin-bottom: 12px;
   }
 
   .orders-page .buy-again-button {
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 0;
   }
 
   .orders-page .product-actions {
@@ -223,11 +231,11 @@
       This element will now be placed in its normal column
       in the grid. */
     grid-column: auto;
-    margin-bottom: 70px;
+    margin-bottom: 0;
   }
 
   .orders-page .track-package-button {
     width: 100%;
-    padding: 12px;
+    padding: 10px 12px;
   }
 }

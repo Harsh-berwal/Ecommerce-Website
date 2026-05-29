@@ -13,8 +13,13 @@ export function PaymentSummary({ paymentSummary, loadCart }) {
 
   return (
     <div className="payment-summary">
-      <div className="payment-summary-title">
-        Payment Summary
+      <div className="payment-summary-title-wrap">
+        <div className="payment-summary-title">
+          Payment Summary
+        </div>
+        <div className="payment-summary-subtitle">
+          Review totals before placing your order.
+        </div>
       </div>
 
       {paymentSummary && (
