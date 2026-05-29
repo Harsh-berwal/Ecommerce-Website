@@ -1,15 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Work+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 :root {
-  --bg: #f4f7fb;
-  --surface: rgba(255, 255, 255, 0.9);
+  --bg: #fafafa;
+  --surface: #ffffff;
   --surface-strong: #ffffff;
-  --text-main: #0f172a;
-  --text-muted: #64748b;
-  --accent: #0ea5e9;
-  --accent-2: #14b8a6;
-  --shadow-sm: 0 10px 20px rgba(15, 23, 42, 0.06);
-  --shadow-lg: 0 24px 50px rgba(15, 23, 42, 0.14);
+  --text-main: #09090b;
+  --text-muted: #71717a;
+  --accent: #7c3aed;
+  --accent-2: #6d28d9;
+  --border: #e4e4e7;
+  --tag-bg: #f4f4f5;
+  --tag-text: #52525b;
+  --success: #22c55e;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
 
 * {
@@ -24,11 +28,8 @@ body {
   margin: 0;
   min-height: 100vh;
   color: var(--text-main);
-  font-family: 'Work Sans', 'Space Grotesk', sans-serif;
-  background:
-    radial-gradient(circle at top left, rgba(20, 184, 166, 0.1), transparent 28%),
-    radial-gradient(circle at top right, rgba(14, 165, 233, 0.1), transparent 24%),
-    linear-gradient(180deg, #f8fbff 0%, var(--bg) 100%);
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg);
 }
 
 /* Remove the default margins of <p> elements. */
@@ -55,10 +56,11 @@ input, select, button {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  min-height: 44px;
+  min-height: 48px;
   padding: 0 18px;
+  text-decoration: none;
   color: #fff;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  background: var(--accent);
   border: 1px solid transparent;
   border-radius: 14px;
   cursor: pointer;
@@ -68,6 +70,7 @@ input, select, button {
 
 .button-primary:hover {
   transform: translateY(-1px);
+  background: var(--accent-2);
   box-shadow: var(--shadow-lg);
 }
 
@@ -81,11 +84,12 @@ input, select, button {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  min-height: 44px;
+  min-height: 48px;
   padding: 0 18px;
+  text-decoration: none;
   color: var(--text-main);
-  background: rgba(255, 255, 255, 0.88);
-  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: #fff;
+  border: 1px solid var(--border);
   border-radius: 14px;
   cursor: pointer;
   box-shadow: var(--shadow-sm);
@@ -131,7 +135,7 @@ input, select, button {
 select {
   color: var(--text-main);
   background-color: var(--surface-strong);
-  border: 1px solid rgba(15, 23, 42, 0.12);
+  border: 1px solid var(--border);
   border-radius: 12px;
   padding: 0 12px;
   font-size: 15px;

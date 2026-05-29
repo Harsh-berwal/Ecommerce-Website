@@ -316,9 +316,10 @@
 .checkout-page .checkout-empty-card {
   padding: 28px;
   border-radius: 28px;
-  background: linear-gradient(135deg, #0f172a, #182e4b);
-  color: #fff;
-  box-shadow: var(--shadow-lg);
+  background: #fff;
+  color: var(--text-main);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
 }
 
 .checkout-page .checkout-empty-kicker {
@@ -326,19 +327,32 @@
   text-transform: uppercase;
   letter-spacing: 0.16em;
   font-size: 0.72rem;
-  color: rgba(226, 232, 240, 0.72);
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 14px;
+  border-radius: 9999px;
+  background: var(--tag-bg);
+  border: 1px solid var(--border);
 }
 
 .checkout-page .checkout-empty-card h2 {
   margin: 0 0 10px;
   font-size: clamp(1.8rem, 2.8vw, 2.5rem);
+  letter-spacing: -0.04em;
+  font-weight: 800;
 }
 
 .checkout-page .checkout-empty-card p {
   max-width: 62ch;
-  color: rgba(226, 232, 240, 0.82);
+  color: var(--text-muted);
   line-height: 1.7;
   margin-bottom: 18px;
+}
+
+.checkout-page .checkout-empty-card .button-primary {
+  min-width: 184px;
 }
 
 @media (max-width: 1000px) {

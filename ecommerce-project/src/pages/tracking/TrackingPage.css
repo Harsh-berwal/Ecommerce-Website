@@ -1,120 +1,173 @@
 .tracking-page {
-  margin-top: 60px;
-  min-height: calc(100vh - 60px);
-  background: rgb(245, 245, 245);
-  padding: 40px 20px;
+  margin-top: 72px;
+  min-height: calc(100vh - 72px);
+  background-color: #fafafa;
+  background-image: linear-gradient(rgba(228, 228, 231, 0.72) 1px, transparent 1px), linear-gradient(90deg, rgba(228, 228, 231, 0.72) 1px, transparent 1px);
+  background-size: 80px 80px;
+  background-position: center;
+  padding: 40px 24px 96px;
   display: flex;
   justify-content: center;
 }
 
 .tracking-card {
   width: 100%;
-  max-width: 700px;
-  background: white;
-  border: 1px solid rgb(222, 222, 222);
-  border-radius: 8px;
-  padding: 24px;
+  max-width: 980px;
+  padding: 32px;
+  border-radius: 32px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: var(--shadow-sm);
 }
 
 .tracking-card h1 {
-  font-size: 28px;
-  margin-top: 0;
-  margin-bottom: 10px;
+  margin: 0 0 14px;
+  font-size: clamp(2.2rem, 3.5vw, 3.4rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-weight: 800;
+  color: var(--text-main);
 }
 
 .tracking-card p {
   margin: 0;
-  color: rgb(59, 59, 59);
+  color: var(--text-muted);
+  line-height: 1.7;
 }
 
 .tracking-card .tracking-note {
   margin-top: 8px;
   font-size: 14px;
-  color: rgb(100, 100, 100);
+  color: var(--text-muted);
 }
 
 .tracking-product-card {
-  margin-top: 18px;
-  border: 1px solid rgb(222, 222, 222);
-  border-radius: 8px;
-  background: rgb(249, 249, 249);
-  padding: 14px;
+  margin-top: 24px;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  background: #fff;
+  padding: 20px;
   display: grid;
-  grid-template-columns: 110px 1fr;
-  gap: 16px;
+  grid-template-columns: 140px 1fr;
+  gap: 20px;
+  box-shadow: var(--shadow-sm);
 }
 
 .tracking-product-image {
-  width: 110px;
-  height: 110px;
-  object-fit: contain;
-  background: white;
-  border-radius: 6px;
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  background: #f8f8f8;
+  border-radius: 20px;
+  border: 1px solid var(--border);
 }
 
 .tracking-product-details {
   display: grid;
-  gap: 6px;
-  color: rgb(45, 45, 45);
+  gap: 8px;
+  align-content: center;
+  color: var(--text-main);
+  font-size: 0.98rem;
 }
 
 .tracking-product-name {
-  font-size: 18px;
+  font-size: 1.2rem;
   font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 .tracking-progress-section {
-  margin-top: 20px;
+  margin-top: 28px;
+  padding: 22px;
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  background: #fff;
+  box-shadow: var(--shadow-sm);
 }
 
 .tracking-progress-label {
-  font-size: 15px;
+  font-size: 0.95rem;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  color: var(--text-main);
 }
 
 .tracking-progress-track {
-  height: 12px;
+  height: 14px;
   border-radius: 999px;
-  background: rgb(224, 224, 224);
+  background: #e4e4e7;
   overflow: hidden;
 }
 
 .tracking-progress-fill {
   height: 100%;
   width: 0;
-  background: linear-gradient(90deg, rgb(8, 79, 45), rgb(29, 150, 94));
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
   transition: width 450ms ease;
 }
 
 .tracking-progress-meta {
-  margin-top: 8px;
+  margin-top: 10px;
   display: flex;
   justify-content: space-between;
-  font-size: 13px;
-  color: rgb(90, 90, 90);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  gap: 12px;
 }
 
 .tracking-back-link {
-  display: inline-block;
-  margin-top: 16px;
-  color: rgb(8, 79, 45);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  margin-top: 22px;
+  padding: 0 18px;
+  color: #fff;
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 14px;
   font-weight: 600;
   text-decoration: none;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .tracking-back-link:hover {
-  text-decoration: underline;
+  transform: translateY(-1px);
+  background: var(--accent-2);
+  border-color: var(--accent-2);
+  box-shadow: var(--shadow-lg);
 }
 
 @media (max-width: 600px) {
+  .tracking-page {
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-top: 28px;
+  }
+
+  .tracking-card {
+    padding: 20px;
+    border-radius: 24px;
+  }
+
   .tracking-product-card {
     grid-template-columns: 1fr;
   }
 
   .tracking-product-image {
     width: 100%;
-    max-width: 150px;
+    max-width: 180px;
+    height: 180px;
     justify-self: center;
+  }
+
+  .tracking-progress-section {
+    padding: 18px;
+  }
+
+  .tracking-progress-meta {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
