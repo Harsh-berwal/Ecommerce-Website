@@ -1,15 +1,1 @@
-{
-"name": "ecommerce-backend",
-"version": "1.0.0",
-"private": true,
-"type": "module",
-"scripts": {
-"dev": "node --watch server.js",
-"start": "node server.js"
-},
-"dependencies": {
-"express": "^4.21.2",
-"sequelize": "^6.37.5",
-"sql.js-as-sqlite3": "^0.2.1"
-}
-}
+{"name":"ecommerce-backend","version":"1.0.0","private":true,"type":"module","scripts":{"dev":"node --watch server.js","start":"node server.js"},"dependencies":{"cors":"^2.8.6","express":"^4.21.2","sequelize":"^6.37.5","sql.js-as-sqlite3":"^0.2.1"}}

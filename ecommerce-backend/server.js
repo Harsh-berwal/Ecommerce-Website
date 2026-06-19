@@ -11,8 +11,10 @@ import { Product } from './models/Product.js';
 import { DeliveryOption } from './models/DeliveryOption.js';
 import { CartItem } from './models/CartItem.js';
 import { Order } from './models/Order.js';
+import cors from 'cors';
 
 const app = express();
+app.use(cors());
 const PORT = process.env.PORT || 3001;
 
 const PRODUCT_IMAGE_DIR = path.join(process.cwd(), 'images', 'products');
