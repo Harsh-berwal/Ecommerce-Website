@@ -78,11 +78,11 @@ export function HomePage({ cart, loadCart }) {
         <section className="hero-panel">
           <div className="hero-copy">
             <p className="eyebrow">Northstar market</p>
-            <h1>Clean, modern products for everyday shopping.</h1>
-            <p className="hero-description">
-              Browse the full catalog directly from the backend with instant search across product names.
+            <h1>A curated marketplace for modern essentials.</h1>
+            <p className="hero-description pb-5">
+              Discover thoughtfully selected products from trusted brands, all in one place.
             </p>
-            <div className="hero-actions">
+            <div className="hero-actions pt-10">
               <Link className="button-primary hero-button" to="/checkout">Shop cart</Link>
               <Link className="button-secondary hero-button-secondary" to="/wishlist">Wishlist</Link>
             </div>
