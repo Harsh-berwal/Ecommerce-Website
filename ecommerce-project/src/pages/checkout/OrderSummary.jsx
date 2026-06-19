@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "../../api";
 import dayjs from 'dayjs';
 import { formatMoney } from '../../utils/money';
 import { DeliveryOptions } from './DeliveryOptions';

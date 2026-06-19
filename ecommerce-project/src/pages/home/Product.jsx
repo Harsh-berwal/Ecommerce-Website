@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "../../api";
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 import { formatMoney } from '../../utils/money';

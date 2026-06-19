@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "../../api";
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useLocation } from 'react-router';
 import { Header } from '../../components/Header';

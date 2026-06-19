@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "../../api";
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router';
 import { OrderSummary } from './OrderSummary';
