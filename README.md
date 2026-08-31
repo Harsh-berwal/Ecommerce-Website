@@ -8,7 +8,7 @@ The project is divided into separate frontend and backend applications and is co
 
 ## 🌐 Live Project
 
-https://react-fawn-delta.vercel.app/
+### 🚀 [Visit Live Website](https://react-fawn-delta.vercel.app/)
 
 > Click the link above to visit the deployed e-commerce website.
 
@@ -61,6 +61,7 @@ The frontend communicates with the backend through API requests to retrieve and 
 
 ### Deployment
 
+- Vercel
 - Render
 
 ### Development Tools
