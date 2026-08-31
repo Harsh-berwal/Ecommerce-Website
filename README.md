@@ -30,6 +30,12 @@ The frontend communicates with the backend through API requests to retrieve and 
 
 ---
 
+## 📸 Screenshot
+
+![Ecommerce Website](Screenshot%20-%20Ecommerce-Website.png)
+
+---
+
 ## ✨ Features
 
 - 🛍️ E-commerce product interface
